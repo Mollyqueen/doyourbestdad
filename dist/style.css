@@ -1,0 +1,916 @@
+/* ============================================
+   Do Your Best Dad - Website Styles
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    --primary: #0f3460;
+    --primary-dark: #0a2340;
+    --primary-light: #1a4a7a;
+    --secondary: #1a1a2e;
+    --accent: #e94560;
+    --text: #1a1a1a;
+    --text-light: #4a4a4a;
+    --text-muted: #666;
+    --bg: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-dark: #f0f4f8;
+    --border: #e0e0e0;
+    --border-light: #eee;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 20px rgba(0,0,0,0.12);
+    --radius: 8px;
+    --radius-lg: 12px;
+    --max-width: 1200px;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-light);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+.site-header {
+    background: white;
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav {
+    padding: 1rem 0;
+}
+
+.main-nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-dark) 100%);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   Features Section
+   ============================================ */
+
+.features {
+    padding: 5rem 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* ============================================
+   Latest Posts Section
+   ============================================ */
+
+.latest-posts {
+    padding: 5rem 0;
+    background: var(--bg-light);
+}
+
+.latest-posts h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.post-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.post-meta {
+    margin-bottom: 0.75rem;
+}
+
+.post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background: var(--bg-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.post-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+}
+
+.post-card h3 a {
+    color: var(--secondary);
+}
+
+.post-card h3 a:hover {
+    color: var(--primary);
+}
+
+.post-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ============================================
+   Toolkit Section
+   ============================================ */
+
+.toolkit-section {
+    padding: 5rem 0;
+}
+
+.toolkit-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.toolkit-text h2 {
+    margin-bottom: 1rem;
+}
+
+.toolkit-text .lead {
+    margin-bottom: 2rem;
+}
+
+.toolkit-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.toolkit-list li {
+    padding: 0.5rem 0;
+    color: var(--text-light);
+}
+
+.toolkit-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.document-stack {
+    position: relative;
+    width: 280px;
+    height: 320px;
+}
+
+.doc {
+    position: absolute;
+    width: 220px;
+    height: 280px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 1rem;
+    text-align: center;
+}
+
+.doc-1 { transform: rotate(-3deg); top: 0; left: 0; z-index: 4; }
+.doc-2 { transform: rotate(2deg); top: 10px; left: 30px; z-index: 3; background: var(--bg-dark); }
+.doc-3 { transform: rotate(-2deg); top: 20px; left: 60px; z-index: 2; }
+.doc-4 { transform: rotate(4deg); top: 30px; left: 20px; z-index: 1; background: var(--bg-light); }
+
+/* ============================================
+   CTA Section
+   ============================================ */
+
+.cta-section {
+    padding: 5rem 0;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: var(--primary);
+}
+
+.cta-buttons .btn-primary:hover {
+    background: var(--bg-light);
+}
+
+/* ============================================
+   Blog Page Styles
+   ============================================ */
+
+.page-header {
+    padding: 4rem 0;
+    background: var(--bg-light);
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-section {
+    padding: 4rem 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.blog-card-content {
+    padding: 1.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.blog-category {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.blog-date {
+    color: var(--text-muted);
+}
+
+.blog-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-card h2 a {
+    color: var(--secondary);
+}
+
+.blog-card h2 a:hover {
+    color: var(--primary);
+}
+
+.blog-card > p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--bg-light);
+    color: var(--text-light);
+    border-radius: 4px;
+}
+
+/* ============================================
+   Blog Post Styles
+   ============================================ */
+
+.blog-post {
+    padding: 3rem 0;
+}
+
+.post-header {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.post-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    font-size: 1.25rem;
+    color: var(--text-light);
+}
+
+.post-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.post-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.post-content h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    color: var(--primary);
+}
+
+.post-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+.post-content strong {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.post-footer {
+    max-width: 700px;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.post-share {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.post-navigation {
+    max-width: 700px;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.prev-post a,
+.next-post a {
+    font-weight: 600;
+}
+
+.related-articles {
+    padding: 4rem 0;
+    background: var(--bg-light);
+}
+
+.related-articles h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.related-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* ============================================
+   Newsletter Section
+   ============================================ */
+
+.newsletter-section {
+    padding: 4rem 0;
+    background: var(--secondary);
+    color: white;
+}
+
+.newsletter-content {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletter-content h2 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.newsletter-content p {
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+.newsletter-form .btn {
+    white-space: nowrap;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.site-footer {
+    background: var(--secondary);
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    opacity: 0.8;
+    max-width: 300px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    opacity: 0.6;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 900px) {
+    .toolkit-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .toolkit-visual {
+        order: -1;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        gap: 0;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+    
+    .post-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* ============================================
+   Utilities
+   ============================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
